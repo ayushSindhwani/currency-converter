@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./app.scss";
+
+import INR from "./INR";
+import USD from "./USD";
+import Rate from "./Rate";
+
+class App extends React.Component {
+  state = {
+    rate: 70,
+    inr: "",
+    usd: 1
+  };
+
+  handleRate = this.handleRate.bind(this);
+  handleINR = this.handleINR.bind(this);
+  handleUSD = this.handleUSD.bind(this);
+
+  componentDidMount() {
+    this.setState({ inr: this.state.usd * this.state.rate });
+  }
+
+  handleRate(event) {
+    this.setState(
+      {
+        rate: event.target.value
+      },
+      () =>
+        this.setState({
+          inr: this.state.usd * this.state.rate
+        })
+    );
+  }
+
+  handleINR(event) {
+    this.setState({
+      inr: event.target.value,
+      usd: event.target.value / this.state.rate
+    });
+  }
+
+  handleUSD(event) {
+    this.setState({
+      usd: event.target.value,
+      inr: event.target.value * this.state.rate
+    });
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <Rate rate={this.state.rate} handleRate={this.handleRate} />
+        <INR inr={this.state.inr} handleINR={this.handleINR} />
+        <USD usd={this.state.usd} handleUSD={this.handleUSD} />
+      </div>
+    );
+  }
 }
 
 export default App;
