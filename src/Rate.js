@@ -11,6 +11,7 @@ function Rate({ rate, handleRate }) {
         className="custom-input"
         value={rate}
         onChange={handleRate}
+        placeholder="1 USD = ? INR"
       />
     </div>
   );

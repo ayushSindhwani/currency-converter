@@ -9,6 +9,7 @@ function USD({ usd, handleUSD }) {
         className="custom-input"
         value={usd}
         onChange={handleUSD}
+        placeholder="Enter USD value here"
       />
     </div>
   );

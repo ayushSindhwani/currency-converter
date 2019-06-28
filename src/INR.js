@@ -9,6 +9,7 @@ function INR({ inr, handleINR }) {
         className="custom-input"
         value={inr}
         onChange={handleINR}
+        placeholder="Enter INR value here"
       />
     </div>
   );
