@@ -5,7 +5,7 @@ function USD({ usd, handleUSD }) {
     <div className="usd row">
       <div className="label">USD</div>
       <input
-        type="text"
+        type="number"
         className="custom-input"
         value={usd}
         onChange={handleUSD}

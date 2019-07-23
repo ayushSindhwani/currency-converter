@@ -5,7 +5,7 @@ function INR({ inr, handleINR }) {
     <div className="inr row">
       <div className="label">INR</div>
       <input
-        type="text"
+        type="number"
         className="custom-input"
         value={inr}
         onChange={handleINR}
